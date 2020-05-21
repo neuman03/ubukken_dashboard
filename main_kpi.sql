@@ -1,5 +1,4 @@
 WITH
-  --会員ごと掲載プランの抽出
   com AS (
   SELECT
     member_id,
@@ -239,7 +238,6 @@ WITH
   GROUP BY
     member_id,
     ym),
-  --ID単位でLH本体・提携媒体の総反響数を抽出
   inq AS (
   SELECT
     member_id,
@@ -281,8 +279,6 @@ WITH
   GROUP BY
     member_id,
     ym ),
-  --horitabからIDごと代表数を抽出　※b_com：事業用物件。名寄せされない必ず代表　b_res：居住用賃貸
-  --注意点…kykey情報は月末時点のものしか残っていないため、月末時点の代表状況
   b_com AS (
   SELECT
     member_id,
@@ -322,7 +318,6 @@ WITH
   GROUP BY
     member_id,
     ym),
-  --上記ジョイン
   mmm AS (
   SELECT
     k.member_id,
